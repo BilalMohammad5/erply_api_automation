@@ -11,8 +11,8 @@ npm i newman-reporter-html  - Installs newman reporters
 
 To execute api tests , in the root directory execute below commands
 
-#headless mode without logs
+#headless mode without logs -
 newman run erply_postman_collection.json -r html 
 
-#headless mode with logs
+#headless mode with logs -
 newman run erply_postman_collection.json 
