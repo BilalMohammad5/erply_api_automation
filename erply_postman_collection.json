@@ -1,0 +1,646 @@
+{
+	"info": {
+		"_postman_id": "a09eaae9-e476-4af2-b3b5-6d25584c9738",
+		"name": "erply",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17410719"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "https://104572.erply.com/api/",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en-GB;q=0.9,en;q=0.8"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://login.erply.com"
+							},
+							{
+								"key": "Referer",
+								"value": "https://login.erply.com/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"102\", \"Google Chrome\";v=\"102\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "clientCode",
+									"value": "104572",
+									"type": "text"
+								},
+								{
+									"key": "request",
+									"value": "getServiceEndpoints",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://104572.erply.com/api/",
+							"protocol": "https",
+							"host": [
+								"104572",
+								"erply",
+								"com"
+							],
+							"path": [
+								"api",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_session",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"sessionKey\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en-GB;q=0.9,en;q=0.8"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=UTF-8"
+							},
+							{
+								"key": "Cookie",
+								"value": "hubspotutk=33a7f7b4c63605a9dfb59d9483593a0a"
+							},
+							{
+								"key": "Origin",
+								"value": "https://login.erply.com"
+							},
+							{
+								"key": "Referer",
+								"value": "https://login.erply.com/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "clientCode",
+								"value": "104572"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"102\", \"Google Chrome\";v=\"102\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"password\":\"PosTestAssignment123\",\"username\":\"testassignment\",\"sessionLength\":43200}"
+						},
+						"url": {
+							"raw": "https://api-auth-eu10.erply.com/v1/session",
+							"protocol": "https",
+							"host": [
+								"api-auth-eu10",
+								"erply",
+								"com"
+							],
+							"path": [
+								"v1",
+								"session"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user/accounts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en-GB;q=0.9,en;q=0.8"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://login.erply.com"
+							},
+							{
+								"key": "Referer",
+								"value": "https://login.erply.com/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "clientCode",
+								"value": "104572"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"102\", \"Google Chrome\";v=\"102\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sessionKey",
+								"value": "erQvhTRWmP4nBYoT1RFIjGNgfMH65Pf9TmMI6P0kphaI"
+							}
+						],
+						"url": {
+							"raw": "https://api-auth-eu10.erply.com/v1/user/accounts",
+							"protocol": "https",
+							"host": [
+								"api-auth-eu10",
+								"erply",
+								"com"
+							],
+							"path": [
+								"v1",
+								"user",
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user/settings",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en-GB;q=0.9,en;q=0.8"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://login.erply.com"
+							},
+							{
+								"key": "Referer",
+								"value": "https://login.erply.com/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "clientCode",
+								"value": "104572"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"102\", \"Google Chrome\";v=\"102\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sessionKey",
+								"value": "erQvhTRWmP4nBYoT1RFIjGNgfMH65Pf9TmMI6P0kphaI"
+							}
+						],
+						"url": {
+							"raw": "https://api-auth-eu10.erply.com/v1/user/settings",
+							"protocol": "https",
+							"host": [
+								"api-auth-eu10",
+								"erply",
+								"com"
+							],
+							"path": [
+								"v1",
+								"user",
+								"settings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "session_logout",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en-GB;q=0.9,en;q=0.8"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://login.erply.com"
+							},
+							{
+								"key": "Referer",
+								"value": "https://login.erply.com/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "clientCode",
+								"value": "104572"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"102\", \"Google Chrome\";v=\"102\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sessionKey",
+								"value": "erQvhTRWmP4nBYoT1RFIjGNgfMH65Pf9TmMI6P0kphaI"
+							}
+						],
+						"url": {
+							"raw": "https://api-auth-eu10.erply.com/v1/session",
+							"protocol": "https",
+							"host": [
+								"api-auth-eu10",
+								"erply",
+								"com"
+							],
+							"path": [
+								"v1",
+								"session"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "configuration",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en-GB;q=0.9,en;q=0.8"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://login.erply.com"
+							},
+							{
+								"key": "Referer",
+								"value": "https://login.erply.com/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "clientCode",
+								"value": "104572"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"102\", \"Google Chrome\";v=\"102\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sessionKey",
+								"value": "lM7am96dCkzS6vkkKbyvYXlDswtS1ycdKdAUoBj7yiVu"
+							}
+						],
+						"url": {
+							"raw": "configuration",
+							"host": [
+								"configuration"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "brand",
+			"item": [
+				{
+					"name": "brand_creation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403 because test users cannot create brands\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"add of brands is not permitted\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en-GB;q=0.9,en;q=0.8"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Cookie",
+								"value": "hubspotutk=33a7f7b4c63605a9dfb59d9483593a0a; apisession_104572=g6Oe9ar7Y0LaZC2sc1nHmdNvPUtWpBBNQIKga2c74jyN"
+							},
+							{
+								"key": "Origin",
+								"value": "https://api-pim-eu10.erply.com"
+							},
+							{
+								"key": "Referer",
+								"value": "https://api-pim-eu10.erply.com/documentation/index.html"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "clientCode",
+								"value": "104572"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"102\", \"Google Chrome\";v=\"102\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": {\n    \"en\": \"ERPLLY\"\n  },\n  \"name\": \"ERPLLY TEST\"\n}"
+						},
+						"url": {
+							"raw": "https://api-pim-eu10.erply.com/v1/brand",
+							"protocol": "https",
+							"host": [
+								"api-pim-eu10",
+								"erply",
+								"com"
+							],
+							"path": [
+								"v1",
+								"brand"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
