@@ -7,7 +7,7 @@ Pre requistes to execute API tests
 
 node js package newman is being used to run postman collections json in CLI
 
-To istalll configure nemwna  please run below commands
+To istalll configure newman  please run below commands
 
 npm i newman  -  to Install newman
 
